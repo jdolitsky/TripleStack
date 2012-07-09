@@ -1,4 +1,4 @@
 genius.js
 =========
 
-node-based and lightweight
+socket.io-based lightweight web development
