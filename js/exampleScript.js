@@ -4,8 +4,8 @@ function addLog(text) {
 	var t_min = time.getMinutes();
 	var t_sec = time.getSeconds();
 	if (t_hr<10){ t_hr='0'+t_hr;}
-	if (t_min<10){ t_min='0'+t_hr;}
-	if (t_sec<10){ t_sec='0'+t_hr;}
+	if (t_min<10){ t_min='0'+t_min;}
+	if (t_sec<10){ t_sec='0'+t_sec;}
 	$('#log').append('<p><span class="time">'+t_hr+':'+t_min+':'+t_sec+'</span> '+text+'</p>');
 	$('#log').scrollTop($('#log')[0].scrollHeight);
 }
