@@ -1,0 +1,53 @@
+body,#content {
+	background:#000;
+	color:#fff;
+	border:0;
+	padding:0;
+	margin:0 auto;
+	font-family:'Courier New';
+	text-align:center;
+}
+
+h1 { 
+	margin: 0;
+	padding-top: 20px;
+}
+
+#myButton {
+	background: #fff;
+	width: 148px;
+	height: 44px;
+	cursor: pointer;
+	margin: 0 auto;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	margin-top: 22px;
+}
+#bText {
+	font-size: 23px;
+	padding-top: 9px;
+	color: #C5C5C5;
+}
+
+#log {
+	width:513px;
+	height:154px;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	margin: 0 auto;
+	background: #fff;
+	border:1px solid #fff;
+	margin-top: 26px;
+	background: #0C101B;
+	text-align: left;
+	font-size: 12px;
+	padding: 7px;
+	color: #0f0;
+}
+p { margin:0; }
+
+.time {
+margin:0;
+font-weight:bold;
+color: #fff;
+}
