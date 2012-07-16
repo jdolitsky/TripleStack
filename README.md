@@ -1,4 +1,4 @@
-genius.js
+TripleStack
 =========
 
 socket.io-based lightweight web development
