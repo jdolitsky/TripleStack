@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>genius.js</title>
-<link rel="stylesheet" href="{GENIUS-FILE-PORT}/css/styles.css" type="text/css" />
+<title>TripleStack</title>{3S-CSS}
 </head>
 <body>
 <div id="content">

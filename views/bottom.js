@@ -1,8 +1,6 @@
 </div>
-<script src="{GENIUS-IO-PORT}/socket.io/socket.io.js"></script>
-<script>
-{GENIUS-INCLUDE}</script>
-<script src="{GENIUS-FILE-PORT}/js/jquery.min.1.7.2.js"></script>
-<script src="{GENIUS-FILE-PORT}/js/exampleScript.js"></script>
+<script src="{3S-IO-PORT}/socket.io/socket.io.js"></script>
+<script>var ioPort='{3S-IO-PORT}';</script>
+<script src="{3S-FILE-PORT}/js/include.js"></script>{3S-SCRIPTS}
 </body>
 </html>

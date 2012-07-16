@@ -19,7 +19,7 @@ function undisable() {
 $(document).ready(function() {
 
 	setTimeout(function() {
-		addLog('Welcome to genius.js');
+		addLog('Welcome to TripleStack');
 	},400);
 	try {
 		// this function is in file genius.js
