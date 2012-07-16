@@ -1,4 +1,4 @@
 TripleStack
 =========
 
-socket.io-based lightweight web development
+multi-port web development
