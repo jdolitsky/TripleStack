@@ -46,6 +46,7 @@ var fileRegex = new RegExp('{3S-FILE-PORT}', 'g');
 // Server 1: File Server
 // this serves actual files via port 'filePort'
 http.createServer(function (req, res) {
+try {
 	var urlA = req.url.split('/');
 	var first = urlA[1];
 	if (first) {
@@ -81,7 +82,9 @@ http.createServer(function (req, res) {
 		res.writeHead(404);
 		res.end();
 	}
-
+} catch (err) {
+	console.log(err);
+}
 }).listen(filePort);
 
 
@@ -89,7 +92,7 @@ http.createServer(function (req, res) {
 // not bound to any files or directories, 
 // handles displaying of views via port 'httpPort'
 http.createServer(function (req, res) {
-
+try {
 	// create new vm context
 	var allVars = {out:''};
 	var context = vm.createContext(allVars);
@@ -98,18 +101,35 @@ http.createServer(function (req, res) {
 	var urlA = req.url.split('/');
 
 	var model = urlA[1];
-
 	var view = urlA[2];
+	
+	console.log('Fix: '+model+' '+view);
+
+	if (model == 'favicon.ico') {
+		res.writeHead(404);
+                res.end();
+		//res.write('');
+		//res.end();		
+	}
+
+	//var view = urlA[2];
 
 	
 	var body='';
-	var addTo = 'http://'+req.headers.host+':';
+
+	// strip port, then add port
+	// http://snipplr.com/view/65682/	
+	var addTo  = ( req.headers.host.match(/:/g) ) ? req.headers.host.slice( 0, req.headers.host.indexOf(":") ) : req.headers.host;
+	addTo = 'http://'+addTo+':';
+
 	// include top layout
 	fs.readFile(viewStr+topInc, function (err, html) {
 		if (err) { res.write(err);} else { 
 			body+=html;
 		}
 	});
+
+	
 
 	// include view file
 	var fn = viewStr;
@@ -226,12 +246,15 @@ http.createServer(function (req, res) {
 			});
 		}
 	});
-
+} catch (err) {
+	console.log(err);
+}
 }).listen(httpPort);
 
 // Server 3: Asynchronous IO server
 // handles all real-time events and actions
 io.sockets.on('connection', function (socket) {
+try {
 	socket.on('commence', function (data) {
 		// handle session etc.
 	});
@@ -242,5 +265,7 @@ io.sockets.on('connection', function (socket) {
 			socket.emit('receive'+data.resNum,{result:result});
 		}
 	});
-
+} catch (err) {
+	console.log(err);
+}
 });
