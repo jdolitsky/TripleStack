@@ -7,7 +7,7 @@ Setup:
 --------
 You must install **Node.js**, as well as the **socket.io** module.
 
-For Node installation instructions, see here: *https://github.com/joyent/node/wiki/Installation*
+For Node installation instructions, see here: <a href="https://github.com/joyent/node/wiki/Installation" target="_blank">https://github.com/joyent/node/wiki/Installation</a>
 
 Make sure everything is up-to-date using this script:
 ```
@@ -45,7 +45,10 @@ To start TripleStack:
 ```
 node triplestack.js
 ```
-
+To stop TripleStack (and all other Node instances):
+```
+pkill -9 node
+```
 How to use:
 --------
 TripleStack loosely follows MVC conventions.
@@ -69,7 +72,7 @@ function index() {
 }
 ```
 
-In **View/app.js**, define the view for the index() function defined in **Controller/app.js**.
+In **View/app.js**, define the HTML view for the index() function defined in **Controller/app.js**.
 ```html
 <h1>
 <?js 
@@ -92,3 +95,6 @@ spit(text2);
 Notice the code segments in between the `<?js` and `?>`. This is where you can do computation and make use of the variables defined and modified in the model and controller files.
 
 Also notice the `spit()` function being called in these segments. This is a special function that allows you to output text at that point in the view file, which will be added to the final output sent back to the client.
+
+The output produced by these 3 default files can then be accessed at <a href="http://localhost" target="_blank">http://localhost</a> (or <a href="http://localhost:82" target="_blank">http://localhost:82</a>, for example, if your your httpPort configuration variable is set to 82).
+
