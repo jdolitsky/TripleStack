@@ -1,7 +1,11 @@
 TripleStack
 =========
 
-multi-port web development
+####Multi-port web development
+
+TripleStack is a mini web framework based on Node.js and Socket.io. It is an inclusive program that sets up 3 servers running on 3 different ports simultaneously. 
+
+One server handles all incoming requests, another retrieves actual files, and the third is a Socket.io server. Additionally, there is client-side JavaScript included to easily make socket calls and store responses. Updates coming soon.
 
 Setup:
 --------
