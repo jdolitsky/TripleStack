@@ -115,7 +115,24 @@ Multiple models:
 --------
 To create a different page, such as <a href="http://localhost/newpage" target="_blank">http://localhost/newpage</a>, you must create a new file in the Model directory called **newpage.js**, a new file in the Controller directory called **newpage.js** with at least the `index()` function defined, and a new directory in the View folder named **newpage** with at least a default view file named **index.js**.
 
-Following this example, your directory structure should look like so:
+For this example, **Model/newpage.js** should look like this...
+```js
+var jsInc = [];
+var cssInc = [];
+var viewName;
+```
+... **Controller/newpage.js** should look like this:
+```js
+function index() {
+  viewName = 'index';
+}
+```
+... and **View/newpage/index.js** should look like this:
+```html
+<h1>Current view: <?js spit(viewName);?></h1>
+```
+
+Your directory structure should look like so:
 ```
 [Model]
   newpage.js
@@ -134,18 +151,14 @@ Following this example, your directory structure should look like so:
 To add a second view named 'view2', simply create the `view2()` function in **Controller/newpage.js**...
 ```js
 function index() {
-  var viewName = 'index';
-  jsInc.push('jquery.min.1.7.2.js','index.js');
-  cssInc.push('index_style.css');
+  viewName = 'index';
 }
 function view2() {
-  var viewName = 'view2';
-  jsInc.push('jquery.min.1.7.2.js','view2.js');
-  cssInc.push('view2_style.css');
+  viewName = 'view2';
 }
 ```
-... and create the new file **View/newpage/view2.js**:
+... and create the new file **View/newpage/view2.js** identical to **View/newpage/index.js**:
 ```html
-<h1>Current view:<?js spit(viewname);?></h1>
+<h1>Current view: <?js spit(viewName);?></h1>
 ```
 This view is then accessible at <a href="http://localhost/newpage/view2" target="_blank">http://localhost/newpage/view2</a>
