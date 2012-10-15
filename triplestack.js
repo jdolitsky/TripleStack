@@ -7,6 +7,9 @@
 //----------------------------->
 
 // configuration defaults
+var httpPort = 80;
+var filePort = 81;
+var ioPort = 3000;
 var path = './';
 var viewFolder = 'View';
 var modelFolder = 'Model';
@@ -21,9 +24,6 @@ var bottomInc = 'bottom.js';
 var defaultModel = 'app.js';
 var defaultView = 'app.js';
 var defaultController = 'app.js';
-var httpPort = 80;
-var filePort = 81;
-var ioPort = 3000;
 var openScript = '<?js';
 var closeScript = '?>';
 
@@ -103,7 +103,7 @@ try {
 	var model = urlA[1];
 	var view = urlA[2];
 	
-	console.log('Fix: '+model+' '+view);
+	//console.log('Fix: '+model+' '+view);
 
 	if (model == 'favicon.ico') {
 		res.writeHead(404);
@@ -137,12 +137,12 @@ try {
 		fn+='/'+model+'/'+view+'.js';
 		var modelFn = path+modelFolder+'/'+model+'.js';
 		var viewFn = path+viewFolder+'/'+model+'/'+view+'.js';  
-		var controlelrFn = path+controllerFolder+'/'+model+'.js'; 
+		var controllerFn = path+controllerFolder+'/'+model+'.js'; 
 	} else if (model) {
 		fn+='/'+model+'/index.js';
 		var modelFn = path+modelFolder+'/'+model+'.js';
 		var viewFn = path+viewFolder+'/'+model+'/index.js'; 
-		var controlelrFn = path+controllerFolder+'/'+model+'.js'; 
+		var controllerFn = path+controllerFolder+'/'+model+'.js'; 
 		view = 'index';
 	} else {
 		fn+=indexFile;
@@ -173,7 +173,12 @@ try {
 					// function from controller
 					j += js2+view+'();';
 					console.log('SERVER SIDE JS:\n------\n'+j+'\n------');
-					vm.runInContext(j,context);
+					try {
+						vm.runInContext(j,context);
+					} catch (err) {
+						res.writeHead(404);
+						res.end();
+					}
 
 					// run view file
 					fs.readFile(viewFn, function (err, html) {
@@ -247,6 +252,8 @@ try {
 		}
 	});
 } catch (err) {
+	res.writeHead(404);
+	res.end();
 	console.log(err);
 }
 }).listen(httpPort);
