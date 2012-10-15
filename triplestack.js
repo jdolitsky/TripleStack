@@ -199,7 +199,12 @@ try {
 								body +=s1[0];			
 								for (var i=1;i<=s1Len-1;i++) { 
 									temp = s1[i].split(closeScript);
-									vm.runInContext(temp[0],context);
+									try {
+										vm.runInContext(temp[0],context);
+									} catch (err) {
+										res.writeHead(404);
+										res.end();
+									}
 									body += context.out;
 									context.out='';
 									if (temp.length>1) {
