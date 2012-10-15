@@ -96,9 +96,7 @@ Notice the code segments in between the `<?js` and `?>`. This is where you can d
 
 Also notice the `spit()` function being called in these segments. This is a special function that allows you to output text at that point in the view file, which will be added to the final output sent back to the client.
 
-The output produced by these 3 default files can then be accessed at <a href="http://localhost" target="_blank">http://localhost</a> (or <a href="http://localhost:82" target="_blank">http://localhost:82</a>, for example, if your your httpPort configuration variable is set to 82).
-
-**The resulting HTML produced:**
+**The resulting HTML output:**
 ```html
 <h1>
 Welcome to TripleStack
@@ -108,6 +106,10 @@ Try Me
 </div></div>
 <div id="log"></div>
 ```
+The output is then inserted between the contents of the **View/top.js** and **View/bottom.js** layout files, then sent back to the client as one HTML file.
+
+This page can then be accessed at <a href="http://localhost" target="_blank">http://localhost</a> (or <a href="http://localhost:82" target="_blank">http://localhost:82</a>, for example, if your your httpPort configuration variable is set to 82).
+
 
 Multiple models:
 --------
@@ -122,6 +124,8 @@ Following this example, your directory structure should look like so:
   [newpage]
      index.js
   app.js
+  top.js
+  bottom.js
 [Controller]
   newpage.js
   app.js
