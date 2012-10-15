@@ -147,7 +147,9 @@ Your directory structure should look like so:
   newpage.js
   app.js
 ```
+This view is now accessible at <a href="http://localhost/newpage" target="_blank">http://localhost/newpage</a>.
 
+### Multiple views
 To add a second view named 'view2', simply create the `view2()` function in **Controller/newpage.js**...
 ```js
 function index() {
@@ -161,4 +163,8 @@ function view2() {
 ```html
 <h1>Current view: <?js spit(viewName);?></h1>
 ```
-This view is then accessible at <a href="http://localhost/newpage/view2" target="_blank">http://localhost/newpage/view2</a>
+This view is now accessible at <a href="http://localhost/newpage/view2" target="_blank">http://localhost/newpage/view2</a>
+
+Working with Socket.io:
+--------
+<i>Coming soon</i>
