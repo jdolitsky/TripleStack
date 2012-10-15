@@ -98,3 +98,31 @@ Also notice the `spit()` function being called in these segments. This is a spec
 
 The output produced by these 3 default files can then be accessed at <a href="http://localhost" target="_blank">http://localhost</a> (or <a href="http://localhost:82" target="_blank">http://localhost:82</a>, for example, if your your httpPort configuration variable is set to 82).
 
+**The resulting HTML produced:**
+```html
+<h1>
+Welcome to TripleStack
+</h1>
+<div id="myButton"><div id="bText">
+Try Me
+</div></div>
+<div id="log"></div>
+```
+
+Multiple models:
+--------
+To create a different page, such as <a href="http://localhost/newpage" target="_blank">http://localhost/newpage</a>, you must create a new file in the Model directory called **newpage.js**, a new file in the Controller directory called **newpage.js** with at least the `index()` function defined, and a new directory in the View folder named **newpage** with at least a default view file named **index.js**.
+
+Following this example, your directory structure should look like so:
+```
+[Model]
+  newpage.js
+  app.js
+[View]
+  [newpage]
+     index.js
+  app.js
+[Controller]
+  newpage.js
+  app.js
+```
