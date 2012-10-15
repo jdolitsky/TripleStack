@@ -151,7 +151,7 @@ Your directory structure should look like so:
   newpage.js
   app.js
 ```
-This view is now accessible at <a href="http://localhost/newpage" target="_blank">http://localhost/newpage</a>.
+This view is now accessible at <a href="http://localhost/newpage" target="_blank">http://localhost/newpage</a> or alternatively at <a href="http://localhost/newpage/index" target="_blank">http://localhost/newpage/index</a>
 
 ### Multiple views
 To add a second view named 'view2', simply create the `view2()` function in **Controller/newpage.js**...
