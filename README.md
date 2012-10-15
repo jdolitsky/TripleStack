@@ -16,7 +16,7 @@ curl http://npmjs.org/install.sh | sh
 
 Once Node is installed and up-to-date, run the following command to install the modules:
 ```
-npm install socket.io forever
+npm install -g socket.io forever
 ```
 
 Clone the source to anywhere on your local machine:
@@ -36,12 +36,19 @@ var ioPort = 3000;
 
 Running:
 --------
-Make sure Node is in the PATH (edit .profile/.bash_profile or run these commands:
+Make sure Node is in the PATH (edit .profile/.bash_profile or run these commands):
 ```
 which node
 export PATH=$PATH:$?
 ```
-In order to start TripleStack, use forever:
+In order to start TripleStack, use the forever module:
 ```
 forever start triplestack.js
 ```
+and to stop Triplestack:
+```
+forever stop triplestack.js
+```
+
+How to use:
+--------
