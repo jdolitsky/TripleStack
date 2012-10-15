@@ -52,3 +52,43 @@ forever stop triplestack.js
 
 How to use:
 --------
+TripleStack loosely follows MVC conventions.
+
+In **Model/app.js**, define variables for the default model. Always include **jsInc** and **cssInc** as shown below.
+```js
+var jsInc = [];
+var cssInc = [];
+
+var text1 = 'watch me change';
+var text2 = 'me too';
+```
+
+In **Controller/app.js**, define view functions for the default model. You should also push filenames to the **jsInc** and **cssInc** lists for the JavaScript and CSS files you wish to include.
+```js
+function index() {
+  text1 = 'Welcome to TripleStack';
+  text2 = 'Try Me';
+  jsInc.push('jquery.min.1.7.2.js','exampleScript.js');
+  cssInc.push('styles.css');
+}
+```
+
+In **View/app.js**, define the view for the index() function defined in **Controller/app.js**.
+```html
+<h1>
+<?js 
+// the 'spit' function. puts js string 
+// into html output
+spit(text1);
+
+?>
+</h1>
+<div id="myButton"><div id="bText">
+<?js 
+
+spit(text2);
+
+?>
+</div></div>
+<div id="log"></div>
+```
