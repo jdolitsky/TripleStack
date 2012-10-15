@@ -130,3 +130,22 @@ Following this example, your directory structure should look like so:
   newpage.js
   app.js
 ```
+
+To add a second view named 'view2', simply create the `view2()` function in **Controller/newpage.js**...
+```js
+function index() {
+  var viewName = 'index';
+  jsInc.push('jquery.min.1.7.2.js','index.js');
+  cssInc.push('index_style.css');
+}
+function view2() {
+  var viewName = 'view2';
+  jsInc.push('jquery.min.1.7.2.js','view2.js');
+  cssInc.push('view2_style.css');
+}
+```
+... and create the new file **View/newpage/view2.js**:
+```html
+<h1>Current view:<?js spit(viewname);?></h1>
+```
+This view is then accessible at <a href="http://localhost/newpage/view2" target="_blank">http://localhost/newpage/view2</a>
