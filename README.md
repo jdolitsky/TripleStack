@@ -5,7 +5,7 @@ multi-port web development
 
 Setup:
 --------
-You must install **Node.js**, as well as the **forever** and **socket.io** modules.
+You must install **Node.js**, as well as the **socket.io** module.
 
 For Node installation instructions, see here: *https://github.com/joyent/node/wiki/Installation*
 
@@ -14,9 +14,9 @@ Make sure everything is up-to-date using this script:
 curl http://npmjs.org/install.sh | sh
 ```
 
-Once Node is installed and up-to-date, run the following command to install the modules:
+Once Node is installed and up-to-date, run the following command to install the socket.io module:
 ```
-npm install -g socket.io forever
+npm install -g socket.io
 ```
 
 Clone the source to anywhere on your local machine:
@@ -41,13 +41,9 @@ Make sure Node is in the PATH (edit .profile/.bash_profile or run these commands
 which node
 export PATH=$PATH:$?
 ```
-In order to start TripleStack, use the forever module:
+To start TripleStack:
 ```
-forever start triplestack.js
-```
-and to stop Triplestack:
-```
-forever stop triplestack.js
+node triplestack.js
 ```
 
 How to use:
@@ -63,7 +59,7 @@ var text1 = 'watch me change';
 var text2 = 'me too';
 ```
 
-In **Controller/app.js**, define view functions for the default model. You should also push filenames to the **jsInc** and **cssInc** lists for the JavaScript and CSS files you wish to include.
+In **Controller/app.js**, define view functions for the default model. You should also push filenames to the **jsInc** and **cssInc** lists for the JavaScript and CSS files you wish to include. These files should be stored in the **js** and **css** folders respectively.
 ```js
 function index() {
   text1 = 'Welcome to TripleStack';
@@ -92,3 +88,7 @@ spit(text2);
 </div></div>
 <div id="log"></div>
 ```
+
+Notice the code segments in between the `<?js` and `?>`. This is where you can do computation and make use of the variables defined and modified in the model and controller files.
+
+Also notice the `spit()` function being called in these segments. This is a special function that allows you to output text at that point in the view file, which will be added to the final output sent back to the client.
